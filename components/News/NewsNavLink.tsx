@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 
 type Props = { href: string; children: React.ReactNode };
 
-const NavLink = ({ href, children }: Props) => {
+const NewsNavLink = ({ href, children }: Props) => {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const isActive = pathname.includes(href);
 
   return (
     <Link
@@ -22,4 +22,4 @@ const NavLink = ({ href, children }: Props) => {
   );
 };
 
-export default NavLink;
+export default NewsNavLink;

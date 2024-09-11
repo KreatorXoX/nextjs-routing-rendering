@@ -3,9 +3,7 @@ import React from "react";
 import Navbar from "./navbar";
 import Logo from "./logo";
 
-type Props = {};
-
-const MainHeader = (props: Props) => {
+const MainHeader = () => {
   return (
     <div className="w-full fixed top-0 z-10 bg-inherit px-10 py-2 lg:text-xl">
       <div className="w-full max-w-7xl mx-auto flex justify-center md:justify-between truncate">
