@@ -8,7 +8,7 @@ type Props = { href: string; children: React.ReactNode };
 
 const MonthsNavLink = ({ href, children }: Props) => {
   let pathname = usePathname();
-  const isActive = pathname.includes(href);
+  const isActive = pathname.endsWith(`/${href}`);
 
   pathname =
     pathname.split("/").length > 3
