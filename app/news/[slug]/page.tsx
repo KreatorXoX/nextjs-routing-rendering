@@ -2,6 +2,7 @@ import Image from "next/image";
 import PageWrapper from "@/components/page-wrapper";
 import { DUMMY_NEWS } from "@/dummy-data";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 type Props = {
   params: {
@@ -25,15 +26,17 @@ const NewsDetailPage = ({ params }: Props) => {
             </h1>
             <p className="text-gray-600 mb-4">{foundNew.date}</p>
             <div className="relative w-full h-64 md:h-96 mb-6">
-              <Image
-                priority
-                src={`/images/news/${foundNew.image}`}
-                alt={foundNew.title}
-                fill
-                style={{ objectFit: "contain" }}
-                className="rounded-lg"
-                sizes="(min-width: 640px) 640px, 100vw"
-              />
+              <Link href={`/news/${params.slug}/image`}>
+                <Image
+                  priority
+                  src={`/images/news/${foundNew.image}`}
+                  alt={foundNew.title}
+                  fill
+                  style={{ objectFit: "contain" }}
+                  className="rounded-lg"
+                  sizes="(min-width: 640px) 640px, 100vw"
+                />
+              </Link>
             </div>
           </header>
 
