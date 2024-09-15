@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { DummyNew } from "@/dummy-data";
+import { DummyNew } from "@/types";
 import Link from "next/link";
 
 type Props = {

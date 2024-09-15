@@ -1,4 +1,4 @@
-import { DUMMY_NEWS } from "@/dummy-data";
+import { getNewsItem } from "@/lib/news";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -7,12 +7,12 @@ type Props = {
     slug: string;
   };
 };
-export default function ImagePage({ params }: Props) {
+export default async function ImagePage({ params }: Props) {
   const { slug } = params;
 
-  const foundNew = DUMMY_NEWS.find((singleNew) => singleNew.slug === slug);
+  const dbNew = await getNewsItem(slug);
 
-  if (!foundNew) {
+  if (!dbNew) {
     notFound();
   }
 
@@ -21,8 +21,8 @@ export default function ImagePage({ params }: Props) {
       <div className="min-h-screen w-full flex flex-col items-center justify-center">
         <div className="w-full max-w-[40rem] h-screen max-h-[50rem] relative flex items-center justify-center">
           <Image
-            src={`/images/news/${foundNew.image}`}
-            alt={foundNew.title}
+            src={`/images/news/${dbNew.image}`}
+            alt={dbNew.title}
             fill
             sizes="(min-width: 640px) 640px, 100vw"
             style={{ objectFit: "cover" }}

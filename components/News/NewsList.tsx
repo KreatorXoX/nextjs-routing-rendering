@@ -1,4 +1,4 @@
-import { DummyNew } from "@/dummy-data";
+import { DummyNew } from "@/types";
 import React from "react";
 import NewItem from "./NewItem";
 
