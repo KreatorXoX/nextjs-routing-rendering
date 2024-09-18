@@ -4,8 +4,8 @@ import NewsNavLink from "./NewsNavLink";
 import MonthsNavLink from "./MonthsNavLink";
 
 type Props = {
-  availableYears: number[];
-  availableMonths: number[] | undefined;
+  availableYears: string[];
+  availableMonths: string[] | undefined;
 };
 
 export default function NewsNavBar({ availableYears, availableMonths }: Props) {
